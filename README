@@ -1,0 +1,33 @@
+Information retrieval systems allow users to enter keywords and retrieve articles that have those keywords associated with them.
+For example, once a student named Yi Li wrote a paper called, "Object Class Recognition using Images of Abstract Regions"
+and included the following keywords: `object recognition', `abstract regions', `mixture models', and  'EM algorithm'.
+If someone does a search for all articles about the EM algorithm, this paper (and many others) will be retrieved.
+
+Implement a binary search tree and use it to store and retrieve articles. The tree will be sorted by keyword, and each node will
+contain an unordered linked list of Record objects which contain information about each article that corresponds to that
+keyword
+
+datafile contains the following per Article record
+Title Id
+Title
+Author
+Number of keys identifier
+List of keys in each corresponding article
+
+Keys are inserted into the Binary Search tree using the insert method in the BST class
+Each key will reference an unordered linked list of article objects (articleid, titleid, and author)
+
+  Algorithm:
+    - Create a BufferedReader Object to read the text from an Input stream (datafile.txt) by buffering characters that seamlessly
+    reads lines (characters, arrays or lines).
+    Note: Each read request made of a Reader causes a corresponding read request to be made of the underlying character or byte stream.
+    It wraps BufferedReader in Java around a java FileReaders (whose read() operations may be costly)
+    - Loop:
+      - read titleid, title, author
+        - create an article object
+      - read the number of keys identifier
+        - Loop read number of keys
+          - insert each key into a BST data structure (BST class will insert the key if not exist)
+          - add the article object to each of the respective keyword node in the BST data structure
+
+      - ouput the resultant BST along with the list of articles per keyword
